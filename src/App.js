@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Menu from './Menu';
 import SimpleAnimation from './animations/SimpleAnimation';
 import KnightAnimation from './animations/KnightAnimation';
+import EyeAnimation from './animations/EyeAnimation';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <SimpleAnimation {...props} file='marty.riv' animation='Animation1' />)
         } />
         <Route path='/knight' component={KnightAnimation} />
+        <Route path='/eye' component={EyeAnimation} />
       </Switch>
     </div>
   );
