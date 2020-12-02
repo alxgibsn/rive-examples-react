@@ -1,3 +1,5 @@
+import Rive from 'rive-canvas';
+
 /* eslint-disable no-undef */
 let RiveModule = null;
 let isLoadingModule = false;
