@@ -7,6 +7,7 @@ export default function Menu() {
           src="https://cdn.2dimensions.com/icons/rive_logo_white.svg" />
       <Link className='ExampleLink' to='/simple'>Marty</Link>
       <Link className='ExampleLink' to='/knight'>Knight</Link>
+      <Link className='ExampleLink' to='/eye'>Eye</Link>
     </div>
   );
 }
