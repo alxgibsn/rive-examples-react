@@ -1,7 +1,12 @@
+.App {
+  max-width: 720px;
+  margin: auto;
+}
+
 .Menu {
   display: flex;
   flex-direction: column;
-  margin: 40px 80px;
+  margin: 40px;
   gap: 10px;
 }
 
@@ -23,13 +28,24 @@
   background-color: #333333;
 }
 
-.AnimationContainer {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 20px;
+.OuterContainer {
+  margin: 40px 40px 0px 40px;
+  max-width: 720px;
+  padding-top: calc(100% - 80px);
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
+}
+
+.InnerContainer {
   position: absolute;
+  top: 0;
+  left: 0;
+}
+
+p {
+  font-family: 'Roboto';
+  font-size: 18px;
+  text-align: center;
+  color: #888888;
 }
