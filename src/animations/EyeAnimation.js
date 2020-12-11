@@ -42,16 +42,18 @@ export default class SimpleAnimation extends React.Component {
       artboard.draw(renderer);
 
       let lastTime = 0;
+      
+      window.addEventListener('mousemove', (e) => focus(e));
 
-      canvas.addEventListener('focus', (e) => {
-        lookVerticalInstance.time = e.detail.y / window.innerHeight;
-        lookHorizontalInstance.time = e.detail.x / window.innerWidth;
+      function focus(e) {
+        lookVerticalInstance.time = e.clientY / window.innerHeight;
+        lookHorizontalInstance.time = e.clientX / window.innerWidth;
         lookVerticalInstance.apply(artboard, 1.0);
         lookHorizontalInstance.apply(artboard, 1.0);
 
         const d = Math.hypot(
-          e.detail.x - window.innerWidth / 2, 
-          e.detail.y - window.innerHeight / 2
+          e.clientX - window.innerWidth / 2, 
+          e.clientY - window.innerHeight / 2
         )
 
         const c = Math.hypot(
@@ -61,7 +63,7 @@ export default class SimpleAnimation extends React.Component {
 
         pupilInstance.time = d / c;
         pupilInstance.apply(artboard, 1.0);
-      });
+      }
       
       canvas.addEventListener('mousedown', () => {
         blinkInstance.time = 0;
@@ -133,6 +135,7 @@ export default class SimpleAnimation extends React.Component {
     // eslint-disable-next-line no-undef
     window.removeEventListener('resize', this.resize);
     window.removeEventListener('load', this.resize);
+    window.removeEventListener('mousemove', this.setCanvas.focus);
   }
 
   onFrequencyUpdate(value) {
@@ -149,20 +152,16 @@ export default class SimpleAnimation extends React.Component {
     this.animationCanvas.height = rect.height;
   }
 
-  onMouseMove(e) {
-    this.animationCanvas.dispatchEvent(
-      new CustomEvent('focus', {
-        detail: { x: e.clientX, y: e.clientY },
-      })
-    );
-  }
-
   render() {
     return (
-      <div ref={this.animationContainer} 
-      className='AnimationContainer'
-      onMouseMove={(e) => this.onMouseMove(e)}>
-        <canvas ref={this.setCanvas} />
+      <div>
+        <div ref={this.animationContainer} 
+          className='OuterContainer'>
+            <div className='InnerContainer'>
+              <canvas ref={this.setCanvas} />
+            </div>
+        </div>
+        <p>Click the eye</p>
       </div>
     );
   }
