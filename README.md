@@ -32,3 +32,9 @@ runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits and you will also see any lint errors in the console.
+
+## Notes on web bundling and deploying
+
+* Rive's web runtime uses Wasm to create a small, performant engine. Not all web bundlers play nicely with Wasm; if you run into difficulties, check your pipeline's documentation. In this example, we load the Wasm file from the *unpkg* cdn, but could just as easily load it from your hosting environment. Take a look at the [RiveLoader.js](https://github.com/alxgibsn/rive-examples-react/blob/main/src/RiveLoader.js) source file. 
+
+* If you get an error along the lines of ```Module not found: Can't resolve 'fs'``` and you're using webpack, try adding ```"node": { "fs": "empty" }``` to you config (*webpack.config.js*).
