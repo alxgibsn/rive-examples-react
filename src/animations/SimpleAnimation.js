@@ -101,8 +101,10 @@ export default class SimpleAnimation extends React.Component {
 
   render() {
     return (
-      <div ref={this.animationContainer} className='AnimationContainer'>
-        <canvas ref={this.setCanvas} />
+      <div ref={this.animationContainer} className='OuterContainer'>
+        <div className='InnerContainer'>
+          <canvas ref={this.setCanvas} />
+        </div>
       </div>
     );
   }

@@ -121,8 +121,13 @@ export default class KnightAnimation extends React.Component {
 
   render() {
     return (
-      <div ref={this.animationContainer} className='AnimationContainer'>
-        <canvas ref={this.setCanvas} />
+      <div>
+        <div ref={this.animationContainer} className='OuterContainer'>
+          <div className='InnerContainer'>
+            <canvas ref={this.setCanvas} />
+          </div>          
+        </div>
+        <p>Click the knight</p>
       </div>
     );
   }
