@@ -11,9 +11,11 @@ function loadRiveModule(cb) {
   } else if (RiveModule) {
     cb(RiveModule);
   } else {
+    console.log('loading module');
     isLoadingModule = true;
+
     Rive({
-      locateFile: (file) => `https://unpkg.com/rive-canvas@0.6.5/${file}`,
+      locateFile: (file) => `https://unpkg.com/rive-canvas@0.6.7/${file}`,
     }).then((module) => {
       isLoadingModule = false;
       RiveModule = module;
