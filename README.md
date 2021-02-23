@@ -1,4 +1,4 @@
-# Rive Web Runtime Examples
+# Rive React Examples
 
 A few examples of implementing Rive animations on the web! Includes examples with both the JS and WASM variants.
 
