@@ -15,7 +15,7 @@ function loadRiveModule(cb) {
     isLoadingModule = true;
 
     Rive({
-      locateFile: (file) => `https://unpkg.com/rive-canvas@0.6.7/${file}`,
+      locateFile: (file) => `https://unpkg.com/rive-canvas@0.6.10/${file}`,
     }).then((module) => {
       isLoadingModule = false;
       RiveModule = module;

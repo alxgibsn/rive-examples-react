@@ -1,19 +1,16 @@
-import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Menu from './Menu';
-import SimpleAnimation from './animations/SimpleAnimation';
+import MartyAnimation from './animations/MartyAnimation';
 import KnightAnimation from './animations/KnightAnimation';
 import EyeAnimation from './animations/EyeAnimation';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Switch>
         <Route exact path='/' component={Menu} />
-        <Route path='/simple' render={(props) => (
-          <SimpleAnimation {...props} file='marty.riv' animation='Animation1' />)
-        } />
+        <Route path='/marty' component={MartyAnimation} />
         <Route path='/knight' component={KnightAnimation} />
         <Route path='/eye' component={EyeAnimation} />
       </Switch>
