@@ -1,27 +1,51 @@
-# Rive 2 React Component Example
+# Rive Web Runtime Examples
 
-Here's a simple example of how to create and use a React component for Rive 2. This uses Rive's [Wasm runtime](https://github.com/rive-app/rive-wasm).
+A few examples of implementing Rive animations on the web! Includes examples with both the JS and WASM variants.
 
-There are two sample components:
+[Rive's JS runtime](https://github.com/rive-app/rive-js) is the simplest way to get your animations running in the web. Alternatvely, make use of [Rive's WASM runtime](https://github.com/rive-app/rive-canvas) for lower level control of your animations.
 
-## SimpleAnimation
+Currently, there are theee sample animations:
 
-`SimpleAnimation` continuously plays a looping animation. Provide it with the url to the file and the name of the animation to play:
+## MartyAnimation
 
-```js
-<SimpleAnimation file='my_animation.riv' animation='MyAnimation' />
+`MartyAnimation` continuously plays a looping animation:
+
+```ts
+animation = new RiveAnimation({
+  src: '/marty.riv',
+  canvas: canvas.current,
+  autoplay: true,
+});
 ```
 
 ## KnightAnimation
 
-The `KnightAnimation` shows how to add custom behavior to an animation. When the animation is clicked on it toggles between two animations, mixing in, and transforming between, two animations in a file.
+`KnightAnimation` introduces multiple animations with basic interaction. When the animation is clicked, it toggles between two animations, mixing in, and transforming between, multiple animations within the Rive file.
 
-## Running the Example
+```ts
+const toggle = () => {
+  animation.current.play(sunshine ? 'day_night' : 'night_day');
+  sunshine = !sunshine;
+};
+```
+
+## EyeAnimation
+
+The `EyeAnimation` demonstrates managing the run loop with the `rive-canvas` package for maximum control of a range of animations within the Rive file. It mixes a range of animations that are either looping, triggered by clicking, or mapped to the cursor position.
+
+```ts
+instances.lookY.time = e.clientY / window.innerHeight;
+instances.lookX.time = e.clientX / window.innerWidth;
+instances.lookY.apply(artboard, 1.0);
+instances.lookX.apply(artboard, 1.0);
+```
+
+## Running the examples
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ```js
-npm update
+npm install
 ```
 will pull down the necessary dependencies.
 
