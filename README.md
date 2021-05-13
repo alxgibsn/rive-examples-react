@@ -2,7 +2,7 @@
 
 A few examples of implementing Rive animations on the web! Includes examples with both the JS and WASM variants.
 
-[Rive's JS runtime](https://github.com/rive-app/rive-js) is the simplest way to get your animations running in the web. Alternatvely, make use of [Rive's WASM runtime](https://github.com/rive-app/rive-canvas) for lower level control of your animations.
+[Rive's JS runtime](https://github.com/rive-app/rive-wasm/tree/HEAD/js) is the simplest way to get your animations running in the web. Alternatvely, make use of [Rive's WASM runtime](https://github.com/rive-app/rive-wasm/tree/HEAD/wasm) for lower level control of your animations.
 
 Currently, there are theee sample animations:
 
